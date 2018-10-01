@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use('/users', userRoute);
 
 app.get('/', (req, res) => {
-  res.json({ok: req.query.ban});
+  res.json({awake: true});
 });
 
 
