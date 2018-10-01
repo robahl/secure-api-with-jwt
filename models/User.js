@@ -1,8 +1,8 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let Schema = mongo.Schema;
+const Schema = mongo.Schema;
 
-let userSchema = new Schema({
+const userSchema = new Schema({
   username: String,
   password: String,
   admin: Boolean

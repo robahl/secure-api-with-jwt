@@ -1,7 +1,7 @@
-let express = require('express');
-let bodyParser = require('body-parser');
-let app = express();
-let db = require('./db');
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+const db = require('./db');
 
 const port = 3300;
 

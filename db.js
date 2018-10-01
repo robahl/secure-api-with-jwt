@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const user = process.env.DBUSER;
 const pass = process.env.DBPASS;
