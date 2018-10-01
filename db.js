@@ -2,8 +2,9 @@ const mongoose = require('mongoose');
 
 const user = process.env.DBUSER;
 const pass = process.env.DBPASS;
+const dbName = 'adminfer';
 
-const mongoUri = `mongodb+srv://${user}:${pass}@haven-qjdfk.mongodb.net/test?retryWrites=true`;
+const mongoUri = `mongodb+srv://${user}:${pass}@haven-qjdfk.mongodb.net/${dbName}?retryWrites=true`;
 
 
 module.exports = {
