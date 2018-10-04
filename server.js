@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const db = require('./db');
-const userRoute = require('./routes/user');
-const loginHandler = require('./routes/login');
+const userRoute = require('./controllers/user');
+const loginHandler = require('./controllers/login');
 
 const port = 3300;
 
