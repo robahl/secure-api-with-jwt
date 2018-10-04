@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   admin: {
     type: Boolean,
-    required: true
+    default: false
   }
 });
 
@@ -35,6 +35,10 @@ userSchema.pre('save', function (next) {
 
 userSchema.methods.comparePassword = function (password) {
   // bcrypt comparison
+  bcrypt.compare(this.password, password)
+    .then(result => {
+      return result;
+    });
 };
 
 module.exports = mongoose.model('User', userSchema);

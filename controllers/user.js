@@ -8,15 +8,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-  let q = req.query;
-  console.log(q);
-  if (!q.username || !q.password || !q.admin) {
+  if (!req.body.username || !req.body.password) {
     return res.json({error: "Required query parameters, username, password, admin"});
   }
 
   // else
   User.create({
-    username: q.username, password: q.password, admin: q.admin
+    username: req.body.username,
+    password: req.body.password
   }).then(user => res.json({success: true}));
 });
 
