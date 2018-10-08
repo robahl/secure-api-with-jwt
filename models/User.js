@@ -33,12 +33,10 @@ userSchema.pre('save', function (next) {
 
 });
 
-userSchema.methods.comparePassword = function (password) {
+userSchema.methods.comparePassword = async function (password) {
   // bcrypt comparison
-  bcrypt.compare(this.password, password)
-    .then(result => {
-      return result;
-    });
+    const res = await bcrypt.compare(password, this.password)
+    return res;
 };
 
 module.exports = mongoose.model('User', userSchema);
