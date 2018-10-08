@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/User.js');
+const auth = require('../middleware/auth');
 
 // Index route - lists all users
-router.get('/', (req, res) => {
+router.get('/', auth, (req, res) => {
   console.log("Hit users index");
   User.find().then((users) => res.json(users));
 });
