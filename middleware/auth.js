@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
     const token = req.body.jwt;
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
       if (err) {
-        return res.json({error: "Error verifying token"});
+        return res.json({error: "Token is invalid"});
       }
       return next();
     });
