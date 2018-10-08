@@ -11,10 +11,13 @@ router.post('/login', (req, res) => {
             username: user.username
           }
 
-          jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 500}, jwt => {
+          jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 500}, (err, token) => {
+            if (err) {
+              return res.json({error: "Could not sign JWT"});
+            }
             res.json({
               success: "username and password matched",
-              jwt
+              jwt: token
             });
           });
         } else {
