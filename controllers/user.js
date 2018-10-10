@@ -17,7 +17,8 @@ router.post('/add', (req, res) => {
   User.create({
     username: req.body.username,
     password: req.body.password
-  }).then(user => res.json({success: true}));
+  }).then(user => res.json({success: true}))
+    .catch(err => res.json({success: false, err}));
 });
 
 module.exports = router;
