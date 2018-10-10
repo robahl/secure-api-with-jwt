@@ -12,7 +12,7 @@ afterAll((done) => {
 
 describe('User controller', () => {
   test(`${usersURL} responds with an error without JWT`, (done) => {
-    request(app).get(`/users`).then(response => {
+    request(app).get(usersURL).then(response => {
       expect(response.statusCode).toBe(401);
       done();
     });
