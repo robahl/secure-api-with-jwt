@@ -17,4 +17,19 @@ describe('User controller', () => {
       done();
     });
   });
+
+  test(`${usersURL}/add creates a new user`, (done) => {
+    const testUser = {username: "test_user", password: "testpassword"};
+    request(app)
+      .post(`${usersURL}/add`)
+      .send(testUser)
+      .then(response => {
+      expect(response.statusCode).toBe(200);
+      expect(response.body.success).toBeTruthy();
+      User.findOne({username: testUser.username}).then(user => {
+        expect(user.username).toBe(testUser.username);
+        done();
+      });
+    });
+  });
 });
