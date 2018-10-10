@@ -11,6 +11,9 @@ const mongoUri = `mongodb+srv://${user}:${pass}@${host}/${name}?retryWrites=true
 module.exports = {
   connect: () => {
     mongoose.connect(mongoUri, {useNewUrlParser: true});
-    console.log("Connected to MongoDB");
+  },
+
+  disconnect: () => {
+    mongoose.connection.close();
   }
 };
