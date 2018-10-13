@@ -28,7 +28,9 @@ describe('User controller', () => {
       expect(response.body.success).toBeTruthy();
       User.findOne({username: testUser.username}).then(user => {
         expect(user.username).toBe(testUser.username);
-        done();
+        User.deleteOne({_id: user._id})
+          .then(() => done())
+          .catch(err => console.log(err));
       });
     });
   });
