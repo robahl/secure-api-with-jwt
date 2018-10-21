@@ -7,10 +7,12 @@ const pass = process.env.DB_PASS;
 
 const mongoUri = `mongodb+srv://${user}:${pass}@${host}/${name}?retryWrites=true`;
 
-
 module.exports = {
   connect: () => {
-    mongoose.connect(mongoUri, {useNewUrlParser: true});
+    mongoose.connect(
+      mongoUri,
+      { useNewUrlParser: true }
+    );
   },
 
   disconnect: () => {

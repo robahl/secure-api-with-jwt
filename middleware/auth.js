@@ -5,12 +5,12 @@ module.exports = (req, res, next) => {
     const token = req.body.jwt;
     jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
       if (err) {
-        return res.status(401).json({error: err});
+        return res.status(401).json({ error: err });
       }
       return next();
     });
   } else {
     // No JWT supplied
-    res.status(401).json({error: "Unauthorized, no jwt"});
+    res.status(401).json({ error: 'Unauthorized, no jwt' });
   }
 };

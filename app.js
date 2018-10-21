@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const db = require('./db')
+const db = require('./db');
 const bodyParser = require('body-parser');
 
 const userRoute = require('./controllers/user');
@@ -15,7 +15,7 @@ app.use('/users', userRoute);
 app.use(loginHandler);
 
 app.get('/', (req, res) => {
-  res.json({awake: true});
+  res.json({ awake: true });
 });
 
 // Export the app for Supertest
